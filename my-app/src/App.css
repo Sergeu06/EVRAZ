@@ -1,0 +1,131 @@
+/* Основные стили для body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;  /* Добавлено светлое фоновое изображение */
+}
+
+/* Стиль для контекстного меню */
+.context-menu {
+  position: absolute;
+  z-index: 1000;
+  background-color: #ffffff;  /* Сделаем фон меню белым */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.context-menu button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.context-menu button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Стиль для блоков */
+.block {
+  position: absolute;
+  text-align: center;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #e1e8f0;  /* Фоновый цвет блока */
+  border-radius: 8px;  /* Округлённые углы */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 150px;  /* Размер блока */
+  height: 50px;
+  cursor: move;
+  transition: transform 0.2s ease;
+  z-index: 100;
+}
+
+.block:hover {
+  transform: scale(1.05);  /* Легкое увеличение при наведении */
+}
+
+/* Стили для точек входа и выхода */
+.point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Точка входа (синий) - слева */
+.point.input {
+  background-color: green;
+  top: 50%;
+  left: -10px;  /* Позиционируем точку на левом краю блока */
+  transform: translateY(-50%);  /* Центрируем точку по вертикали */
+}
+
+/* Точка выхода (красный) - справа */
+.point.output {
+  background-color: red;
+  top: 50%;
+  right: -10px;  /* Позиционируем точку на правом краю блока */
+  transform: translateY(-50%);  /* Центрируем точку по вертикали */
+}
+.point.input:hover, .point.output:hover {
+  background-color: #FFD700; /* Add some highlight effect */
+}
+
+/* Линии соединения */
+.line {
+  stroke-width: 2;
+  stroke: black;
+}
+
+/* Стиль для корзины (красный крест) */
+.delete-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent; /* Сделаем фон прозрачным */
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-icon::before, .delete-icon::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: red; /* Красный цвет для креста */
+}
+
+.delete-icon::before {
+  transform: rotate(45deg); /* Поворот на 45 градусов для одной линии */
+}
+
+.delete-icon::after {
+  transform: rotate(-45deg); /* Поворот на -45 градусов для второй линии */
+}
+
+/* Показываем крест при наведении на блок */
+.block:hover .delete-icon {
+  opacity: 1; 
+}
+
+/* Дополнительные стили для улучшения взаимодействия с блоками */
+.block .delete-icon:hover {
+  opacity: 1; /* Убираем задержку отображения */
+}
+
