@@ -58,7 +58,7 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         logger.info(f"Files for user {user_id}: {user_files[user_id]}")
 
         button = InlineKeyboardButton(
-            "Перейти на сайт", url=f"http://192.168.0.228:3000/?start={user_id}"
+            "Перейти на сайт", url=f"http://localhost:3000/?start={user_id}"
         )
         keyboard = InlineKeyboardMarkup([[button]])
 

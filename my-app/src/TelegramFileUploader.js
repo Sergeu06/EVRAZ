@@ -9,7 +9,7 @@ const TelegramFileViewer = () => {
   const fetchFilesFromServer = async (chatId) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://192.168.0.228:5000/get_files/${chatId}`);
+      const response = await fetch(`http://localhost:5000/get_files/${chatId}`);
       
       if (!response.ok) {
         throw new Error(`Ошибка: ${response.statusText}`);
@@ -54,7 +54,7 @@ const TelegramFileViewer = () => {
           {files.map((file, index) => (
             <li key={index}>
               {file.file_name}{" "}
-              <a href={`http://192.168.0.228:5000/get_file_link/${file.file_id}`} target="_blank" rel="noopener noreferrer">
+              <a href={`http://localhost:5000/get_file_link/${file.file_id}`} target="_blank" rel="noopener noreferrer">
                 Скачать
               </a>
             </li>
